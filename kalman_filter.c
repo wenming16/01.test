@@ -1,3 +1,15 @@
+void kalmanInit(KalmanFilter* kf, double initial_value, double p_init, 
+               double process_noise, double measure_noise) {
+    /* 初始化状态估计值 */
+    kf->x_est = initial_value;
+    /* 初始化误差协方差矩阵 */
+    kf->p_est = p_init;
+    /* 设置过程噪声协方差(系统不确定性) */
+    kf->q = process_noise;
+    /* 设置测量噪声协方差(传感器噪声) */
+    kf->r = measure_noise;
+}
+
 #include "kalman_filter.h"
 #include <stdlib.h>
 
